@@ -1,0 +1,80 @@
+.wrap{
+  /*Changing box model default behviour so that height and width will include border , padding  , outline*/
+  box-sizing: border-box;
+  margin: auto;
+  text-align: center;
+}
+
+.searchBar {
+  width: 30%;
+  border: 2px solid #008CBA;
+  padding: 8px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  font-weight: bold;
+  color: rgb(0, 15, 8);
+}
+
+.help-block {
+  font-size: 15px;
+  color: red;
+}
+
+.button {
+  background-color: #008CBA;
+  border: 1px solid #008CBA;
+  color: white;
+  width: 10%;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.button:hover{
+  cursor: pointer;
+}
+
+.card {
+  box-sizing: border-box;
+  /* Using flex model */
+  display: flex;
+  align-items: center;
+  /* set the flex items in row*/
+  flex-direction: row;
+  /* if extra space is available then it will distribute evenly */
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding:5px;
+}
+
+.card-item {
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 300px;
+  margin:5px;
+  text-align: center;
+}
+
+   .card-item img {
+     width: 50%
+   }  
+
+/*max-width means if screen width is less than or equal to 600px then applly the specified css, also max-width is usually associated with Desktop First*/
+@media only screen and (max-width: 600px)  {
+  .card {
+    /*converting from rows to columns for mobile devices*/
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding:5px;
+  }
+
+  .card-item {
+    width: 200px;
+    margin:5px;
+  }
+
+  .button {
+    width: 100px;
+  }
+}

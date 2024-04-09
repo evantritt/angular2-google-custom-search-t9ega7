@@ -1,0 +1,33 @@
+<section class="autoAssist">
+  <span class="introducing">Introducing</span>
+  <img src="../images/AutoAssist.png" alt="" />
+</section>
+
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <div class="wrap">
+    <input
+      type="text"
+      name="searchParam"
+      class="searchBar"
+      ngModel
+      required
+      #searchCtrl="ngModel"
+      placeholder="Search..."
+    />
+    <button class="button" type="submit" [disabled]="form.invalid">
+      Search
+    </button>
+    <br />
+    <div class="help-block" *ngIf="searchCtrl.invalid && searchCtrl.touched">
+      Please enter a search param!
+    </div>
+    <br />
+  </div>
+  <div class="card">
+    <div class="card-item" *ngFor="let item of imageList">
+      <img [src]="item.thumbnailLink" />
+      <h1 *ngIf="item.width >= 600">Big</h1>
+      <h2 *ngIf="item.width < 600">Small</h2>
+    </div>
+  </div>
+</form>
